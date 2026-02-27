@@ -291,6 +291,38 @@
       object-fit: cover;
     }
 
+    @media (max-width: 1024px) {
+      .split img {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        border-radius: 0;
+        height: 80vh;
+        min-height: unset;
+        object-fit: cover;
+        box-shadow: none;
+        margin-top: -2rem;
+      }
+
+      .split .about-text {
+        padding: 0 1rem;
+      }
+
+      .split .about-text .eyebrow {
+        font-size: 0.65rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .split .about-text h2 {
+        font-size: 1.4rem;
+        margin: 0.4rem 0 0.6rem;
+      }
+
+      .split .about-text .lead {
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+    }
+
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -506,6 +538,7 @@
     .tier {
       text-align: center;
       background: linear-gradient(180deg, #fff, #fbf8f2);
+      position: relative;
     }
 
     .tier h3 {
@@ -533,6 +566,36 @@
       color: #7f746a;
       font-size: 0.84rem;
       font-style: italic;
+    }
+
+    @media (max-width: 680px) {
+      .loyalty-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      .tier {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .tier h3 {
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+      }
+
+      .tier .price {
+        font-size: 1.3rem;
+        margin: 0.5rem 0 0.2rem;
+      }
+
+      .tier .save {
+        font-size: 0.82rem;
+      }
+
+      .disclaimer {
+        font-size: 0.72rem;
+        padding: 0 0.5rem;
+      }
     }
 
     .testimonial-heading {
@@ -1077,7 +1140,7 @@
     <section>
       <div class="container split reveal">
         <img src="team/team-group.webp" alt="AR Aesthetics team" />
-        <div>
+        <div class="about-text">
           <div class="eyebrow">About AR Aesthetics</div>
           <h2>Elevated Expertise, Personalized Care</h2>
           <p class="lead">At AR Aesthetics, every interaction is an opportunity to cultivate beauty, to foster
@@ -1549,7 +1612,7 @@
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-    mapboxgl.accessToken = ["pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVyc","TA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"].join("");
+    mapboxgl.accessToken = ["pk.eyJ1Ijoic3RhdGl","tdG1zIiwiYSI6ImNta3JqZWN2NDE0NGozZXE0NnFydndyeDYifQ",".p8lkXg8IgEzKVWBc9Jj8pg"].join("");
 
     const maps = [
       { id: "map-tampa", center: [-82.5127, 27.9445] },
@@ -1563,7 +1626,7 @@
       try {
         const map = new mapboxgl.Map({
           container: item.id,
-          style: "mapbox://styles/mapbox/light-v11",
+          style: "mapbox://styles/mapbox/satellite-streets-v12",
           center: item.center,
           zoom: 12.7
         });
